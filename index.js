@@ -1,7 +1,7 @@
 const rows = 20;
 const columns = 20;
 
-function gameboard() {
+const gameboard = () => {
   const world = document.querySelector(".world");
   const table = document.createElement("table");
 
@@ -16,8 +16,8 @@ function gameboard() {
     table.appendChild(tr);
   }
   world.appendChild(table);
-}
+};
 
-window.onload = function () {
+window.onload = () => {
   gameboard();
 };
