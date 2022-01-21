@@ -37,7 +37,7 @@ describe("Given a function newArray()", () => {
   describe("When it is called", () => {
     test("Then it should return an array of 5 false values", () => {
       const expectedArray = [false, false, false, false, false];
-      const numberOfCells = 5;
+
       const newArrayReturned = newArray();
 
       expect(newArrayReturned).toEqual(expectedArray);
