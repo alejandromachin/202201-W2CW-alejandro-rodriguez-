@@ -1,21 +1,37 @@
 td {
   border: 1px solid black;
-  padding: 10px;
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
 }
 
 tr {
   border: 1px solid black;
-  padding: 10px;
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
 }
 table {
   border: 1px solid black;
 }
+html {
+  box-sizing: border-box;
+  background-color: rgb(4, 4, 105);
+}
 
 .world {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 0 20px #000;
+}
+.header {
+  color: rgb(39, 233, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.main-panel {
   display: flex;
   justify-content: center;
   align-items: center;
