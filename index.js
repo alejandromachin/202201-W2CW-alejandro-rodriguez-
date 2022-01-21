@@ -7,9 +7,9 @@ function gameboard() {
 
   for (let i = 0; i < rows; i++) {
     const tr = document.createElement("tr");
-
+    tr.setAttribute("alive", false);
     for (let j = 0; j < columns; j++) {
-      const cells = document.createElement("cells");
+      const cells = document.createElement("td");
 
       tr.appendChild(cells);
     }
@@ -18,4 +18,6 @@ function gameboard() {
   world.appendChild(table);
 }
 
-gameboard();
+window.onload = function () {
+  gameboard();
+};

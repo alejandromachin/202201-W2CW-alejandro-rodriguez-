@@ -1,1 +1,22 @@
+td {
+  border: 1px solid black;
+  padding: 10px;
+  width: 5px;
+  height: 5px;
+}
 
+tr {
+  border: 1px solid black;
+  padding: 10px;
+  width: 5px;
+  height: 5px;
+}
+table {
+  border: 1px solid black;
+}
+
+.world {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
