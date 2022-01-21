@@ -21,3 +21,13 @@ const gameboard = () => {
 window.onload = () => {
   gameboard();
 };
+
+const numberOfCells = 400;
+
+const newArray = () => {
+  const myArray = [];
+
+  while (myArray.length < numberOfCells) {
+    myArray.push(true);
+  }
+};
