@@ -25,10 +25,11 @@ html {
   box-shadow: 0 0 20px #000;
 }
 .header {
+  color: rgb(39, 233, 0);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
+  height: 100px;
 }
 .main-panel {
   display: flex;
