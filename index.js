@@ -1,23 +1,40 @@
 const rows = 20;
 const columns = 20;
 
-function gameboard() {
-  const world = document.querySelector(".world");
+const gameboard = () => {
+  const board = document.querySelector(".board");
   const table = document.createElement("table");
 
   for (let i = 0; i < rows; i++) {
-    const tr = document.createElement("tr");
-    tr.setAttribute("alive", false);
+    const row = document.createElement("tr");
+    row.setAttribute("alive", false);
     for (let j = 0; j < columns; j++) {
       const cells = document.createElement("td");
 
-      tr.appendChild(cells);
+      row.appendChild(cells);
     }
-    table.appendChild(tr);
+    table.appendChild(row);
   }
-  world.appendChild(table);
-}
+  board.appendChild(table);
+};
 
-window.onload = function () {
+window.onload = () => {
   gameboard();
 };
+
+const newArray = () => {
+  const cellArray = [];
+
+  for (let i = 0; i < rows; i++) {
+    cellArray.push([]);
+  }
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      cellArray[j].push(false);
+    }
+  }
+  return cellArray;
+};
+const arrayToPlayWith = newArray();
+console.log(arrayToPlayWith);

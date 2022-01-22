@@ -17,7 +17,7 @@ html {
   background-color: #0f0f6e;
 }
 
-.world {
+.board {
   display: flex;
   justify-content: center;
   align-items: center;
