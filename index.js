@@ -54,6 +54,9 @@ const deadOrAlive = (i, j) => {
     if (arrayToPlayWith[i - 1][j] === true) {
       aliveNeighbours++;
     }
+    if (aliveNeighbours === 2 || aliveNeighbours === 3) {
+      arrayToPlayWith[i][j] = false;
+    }
   }
 
   // Any live cell with two or three live neighbours survives.
