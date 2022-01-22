@@ -42,37 +42,36 @@ console.log(arrayToPlayWith);
 
 const deadOrAlive = (i, j) => {
   let aliveNeighbors = 0;
-  if (arrayToPlayWith[i][j] === true) {
-    if (i - 1 >= 0) {
-      if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
-    }
-    if (i - 1 >= 0 && j - 1 >= 0) {
-      if (arrayToPlayWith[i - 1][j - 1] === true) aliveNeighbors++;
 
-      if (i - 1 >= 0 && j + 1 < columns) {
-        if (arrayToPlayWith[i - 1][j + 1] === true) aliveNeighbors++;
+  if (i - 1 >= 0) {
+    if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
+  }
+  if (i - 1 >= 0 && j - 1 >= 0) {
+    if (arrayToPlayWith[i - 1][j - 1] === true) aliveNeighbors++;
 
-        if (j - 1 >= 0) {
-          if (arrayToPlayWith[i][j - 1] === true) aliveNeighbors++;
-        }
-        if (j + 1 < columns) {
-          if (arrayToPlayWith[i][j + 1] === true) aliveNeighbors++;
-        }
-        if (i + 1 < rows) {
-          if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
-        }
-        if (i + 1 < rows && j - 1 >= 0) {
-          if (arrayToPlayWith[i + 1][j - 1] === true) aliveNeighbors++;
-        }
-        if (i + 1 < rows && j + 1 < columns) {
-          if (arrayToPlayWith[i + 1][j + 1] === true) aliveNeighbors++;
-        }
+    if (i - 1 >= 0 && j + 1 < columns) {
+      if (arrayToPlayWith[i - 1][j + 1] === true) aliveNeighbors++;
+
+      if (j - 1 >= 0) {
+        if (arrayToPlayWith[i][j - 1] === true) aliveNeighbors++;
+      }
+      if (j + 1 < columns) {
+        if (arrayToPlayWith[i][j + 1] === true) aliveNeighbors++;
+      }
+      if (i + 1 < rows) {
+        if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
+      }
+      if (i + 1 < rows && j - 1 >= 0) {
+        if (arrayToPlayWith[i + 1][j - 1] === true) aliveNeighbors++;
+      }
+      if (i + 1 < rows && j + 1 < columns) {
+        if (arrayToPlayWith[i + 1][j + 1] === true) aliveNeighbors++;
       }
     }
-    return aliveNeighbors;
   }
-};
 
+  return aliveNeighbors;
+};
 const coverArray = () => {
   for (let i = 0; i < arrayToPlayWith.length; i++) {
     for (let j = 0; j < arrayToPlayWith[i].length; j++) {
