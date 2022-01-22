@@ -36,11 +36,11 @@ const newArray = () => {
   }
   return cellArray;
 };
-const arrayToPlayWith = newArray();
-console.log(arrayToPlayWith);
+const arrayToPlayWith1 = newArray();
+console.log(arrayToPlayWith1);
 
 // eslint-disable-next-line no-unused-vars
-const arrayPrueba = [
+const arrayToPlayWith = [
   [true, false, true, false, true],
   [true, false, true, true, false],
   [true, true, false, false, true],
@@ -48,29 +48,21 @@ const arrayPrueba = [
   [false, true, true, false, true],
   [false, false, true, false, true],
 ];
-
+console.log(arrayToPlayWith);
 // eslint-disable-next-line no-unused-vars
-const deadOrAlive = (i, j) => {
-  if (arrayToPlayWith[i][j] === true) {
-    let aliveNeighbours = 0;
-    if (arrayToPlayWith[i][j + 1] === true) {
-      aliveNeighbours++;
-    }
-    if (arrayToPlayWith[i][j - 1] === true) {
-      aliveNeighbours++;
-    }
-    if (arrayToPlayWith[i + 1][j] === true) {
-      aliveNeighbours++;
-    }
-    if (arrayToPlayWith[i - 1][j] === true) {
-      aliveNeighbours++;
-    }
-    if (aliveNeighbours === 2 || aliveNeighbours === 3) {
-      arrayToPlayWith[i][j] = false;
+const deadOrAlive = (i, j) => {};
+
+const coverArray = () => {
+  for (let i = 0; i < arrayToPlayWith.length; i++) {
+    for (let j = 0; j < arrayToPlayWith[i].length; j++) {
+      deadOrAlive(i, j);
     }
   }
-
-  // Any live cell with two or three live neighbours survives.
-  // Any dead cell with three live neighbours becomes a live cell.
-  // All other live cells die in the next generation. Similarly, all other dead cells stay dead.
 };
+
+coverArray();
+console.log(arrayToPlayWith);
+
+// Any live cell with two or three live neighbours survives.
+// Any dead cell with three live neighbours becomes a live cell.
+// All other live cells die in the next generation. Similarly, all other dead cells stay dead.

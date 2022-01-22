@@ -14,6 +14,23 @@ const newArray = () => {
   }
   return cellArray;
 };
+const arrayToPlayWith = [
+  [true, false, true, false, true],
+  [true, false, true, true, false],
+  [true, true, false, false, true],
+  [true, false, true, false, true],
+  [false, true, true, false, true],
+  [false, false, true, false, true],
+];
+
+const coverArray = () => {
+  for (let i = 0; i < arrayToPlayWith.length; i++) {
+    for (let j = 0; j < arrayToPlayWith[i].length; j++) {
+      arrayToPlayWith[i][j] = 0;
+    }
+  }
+  return arrayToPlayWith;
+};
 
 describe("Given a function newArray()", () => {
   describe("When it is called", () => {
@@ -39,6 +56,24 @@ describe("Given a function newArray()", () => {
       const newArrayReturned = newArray();
 
       expect(newArrayReturned).toEqual(expectedArray);
+    });
+  });
+});
+
+describe("Given a function coverArray()", () => {
+  describe("When it is called", () => {
+    test("Then it should cover arrayToPlayWith and changes all values to 0", () => {
+      const arrayExpected = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+      ];
+
+      const newArrayReturned = coverArray();
+
+      expect(newArrayReturned).toEqual(arrayExpected);
     });
   });
 });
