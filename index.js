@@ -38,3 +38,33 @@ const newArray = () => {
 };
 const arrayToPlayWith = newArray();
 console.log(arrayToPlayWith);
+
+const deadOrAlive = (i, j) => {
+  if (arrayToPlayWith[i][j] === true) {
+    let aliveNeighbours = 0;
+    if (arrayToPlayWith[i][j + 1] === true) {
+      aliveNeighbours++;
+    }
+    if (arrayToPlayWith[i][j - 1] === true) {
+      aliveNeighbours++;
+    }
+    if (arrayToPlayWith[i + 1][j] === true) {
+      aliveNeighbours++;
+    }
+    if (arrayToPlayWith[i - 1][j] === true) {
+      aliveNeighbours++;
+    }
+  }
+
+  // Any live cell with two or three live neighbours survives.
+  // Any dead cell with three live neighbours becomes a live cell.
+  // All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+
+  const arrayPrueba = [
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+  ];
+};
