@@ -10,7 +10,8 @@ const gameboard = () => {
 
     for (let j = 0; j < columns; j++) {
       const cells = document.createElement("td");
-      cells.setAttribute("alive", false);
+      cells.classList.add("cell");
+      cells.setAttribute("id", j);
       row.appendChild(cells);
     }
     table.appendChild(row);
@@ -127,6 +128,10 @@ const coverArray = () => {
       if (arrayToPlayWith[i][j] === true) {
         if (aliveNeighbors === 2 || aliveNeighbors === 3) {
           arrayToPlayWith[i][j] = true;
+
+          document.getElementById(
+            "span_trav_emer_med_insur"
+          ).style.backgroundColor = "#FFFFFF";
         } else {
           arrayToPlayWith[i][j] = false;
         }
@@ -146,3 +151,5 @@ console.log(arrayToPlayWith);
 // Any live cell with two or three live neighbours survives.
 // Any dead cell with three live neighbours becomes a live cell.
 // All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+
+const td = document.querySelectorAll(".cell");
