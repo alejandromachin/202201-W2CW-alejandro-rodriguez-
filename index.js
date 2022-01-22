@@ -36,8 +36,8 @@ const newArray = () => {
   }
   return cellArray;
 };
-// let arrayToPlayWith = newArray();
-// console.log(arrayToPlayWith);
+const arrayToPlayWith1 = newArray();
+console.log(arrayToPlayWith1);
 
 // eslint-disable-next-line no-unused-vars
 const arrayToPlayWith = [
