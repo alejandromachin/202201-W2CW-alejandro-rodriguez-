@@ -71,6 +71,26 @@ const deadOrAlive = (i, j) => {
     }
   }
 
+  // it does not evaluate the last collum
+
+  if (j === columns && i > 0 && i < rows) {
+    if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
+    if (arrayToPlayWith[i - 1][j - 1] === true) aliveNeighbors++;
+    if (arrayToPlayWith[i][j - 1] === true) aliveNeighbors++;
+    if (arrayToPlayWith[i + 1][j - 1] === true) aliveNeighbors++;
+    if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
+  }
+
+  // it does not evaluate de first column
+
+  // if (j === 0 && i > 0 && i < rows) {
+  //   if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
+  //   if (arrayToPlayWith[i - 1][j + 1] === true) aliveNeighbors++;
+  //   if (arrayToPlayWith[i][j + 1] === true) aliveNeighbors++;
+  //   if (arrayToPlayWith[i + 1][j + 1] === true) aliveNeighbors++;
+  //   if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
+  // }
+
   if (i - 1 >= 0) {
     if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
   }
