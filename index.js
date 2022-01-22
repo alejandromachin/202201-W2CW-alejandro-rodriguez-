@@ -39,6 +39,15 @@ const newArray = () => {
 const arrayToPlayWith = newArray();
 console.log(arrayToPlayWith);
 
+const arrayPrueba = [
+  [true, false, true, false, true],
+  [true, false, true, true, false],
+  [true, true, false, false, true],
+  [true, false, true, false, true],
+  [false, true, true, false, true],
+  [false, false, true, false, true],
+];
+
 const deadOrAlive = (i, j) => {
   if (arrayToPlayWith[i][j] === true) {
     let aliveNeighbours = 0;
