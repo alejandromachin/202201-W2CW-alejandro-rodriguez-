@@ -102,7 +102,7 @@ const coverArray = () => {
   }
 };
 
-coverArray();
+// coverArray();
 console.log(arrayToPlayWith);
 
 // Any live cell with two or three live neighbours survives.
