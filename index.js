@@ -7,10 +7,10 @@ const gameboard = () => {
 
   for (let i = 0; i < rows; i++) {
     const row = document.createElement("tr");
-    row.setAttribute("alive", false);
+
     for (let j = 0; j < columns; j++) {
       const cells = document.createElement("td");
-
+      cells.setAttribute("alive", false);
       row.appendChild(cells);
     }
     table.appendChild(row);
