@@ -76,8 +76,17 @@ const coverArray = () => {
   for (let i = 0; i < arrayToPlayWith.length; i++) {
     for (let j = 0; j < arrayToPlayWith[i].length; j++) {
       const aliveNeighbors = deadOrAlive(i, j);
-      if (aliveNeighbors > 2) {
-        arrayToPlayWith[i][j] = false;
+      if (arrayToPlayWith[i][j] === true) {
+        if (aliveNeighbors === 2 || aliveNeighbors === 3) {
+          arrayToPlayWith[i][j] = true;
+        } else {
+          arrayToPlayWith[i][j] = false;
+        }
+      }
+      if (arrayToPlayWith[i][j] === false) {
+        if (aliveNeighbors === 3) {
+          arrayToPlayWith[i][j] = true;
+        }
       }
     }
   }
