@@ -53,6 +53,24 @@ randomAliveCells();
 const deadOrAlive = (i, j) => {
   let aliveNeighbors = 0;
 
+  if (i === 0) {
+    if (j === 0) {
+      if (arrayToPlayWith[i][j + 1] === true) aliveNeighbors++;
+      if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
+    }
+    if (j > 0 && j < columns) {
+      if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
+      if (arrayToPlayWith[i + 1][j - 1] === true) aliveNeighbors++;
+      if (arrayToPlayWith[i + 1][j + 1] === true) aliveNeighbors++;
+      if (arrayToPlayWith[i][j + 1] === true) aliveNeighbors++;
+    }
+    if (j === columns) {
+      if (arrayToPlayWith[i][j - 1] === true) aliveNeighbors++;
+      if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
+      if (arrayToPlayWith[i + 1][j - 1] === true) aliveNeighbors++;
+    }
+  }
+
   if (i - 1 >= 0) {
     if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
   }
