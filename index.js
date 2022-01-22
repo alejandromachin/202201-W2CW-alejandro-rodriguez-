@@ -38,7 +38,17 @@ const newArray = () => {
 };
 const arrayToPlayWith = newArray();
 
-console.log(arrayToPlayWith);
+// CHANGES RANDOMLY THE STATUS OF EACH CELL TO LIVE OR DEAD
+
+const randomAliveCells = () => {
+  for (let i = 0; i < arrayToPlayWith.length; i++) {
+    for (let j = 0; j < arrayToPlayWith[i].length; j++) {
+      arrayToPlayWith[i][j] = Math.random() < 0.5;
+    }
+  }
+};
+
+randomAliveCells();
 
 const deadOrAlive = (i, j) => {
   let aliveNeighbors = 0;
