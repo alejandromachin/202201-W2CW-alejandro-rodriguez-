@@ -36,26 +36,58 @@ const newArray = () => {
   }
   return cellArray;
 };
-const arrayToPlayWith1 = newArray();
-console.log(arrayToPlayWith1);
+const arrayToPlayWith = newArray();
 
-// eslint-disable-next-line no-unused-vars
-const arrayToPlayWith = [
-  [true, false, true, false, true],
-  [true, false, true, true, false],
-  [true, true, false, false, true],
-  [true, false, true, false, true],
-  [false, true, true, false, true],
-  [false, false, true, false, true],
-];
 console.log(arrayToPlayWith);
-// eslint-disable-next-line no-unused-vars
-const deadOrAlive = (i, j) => {};
 
+const deadOrAlive = (i, j) => {
+  let aliveNeighbors = 0;
+
+  if (i - 1 >= 0) {
+    if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
+  }
+  if (i - 1 >= 0 && j - 1 >= 0) {
+    if (arrayToPlayWith[i - 1][j - 1] === true) aliveNeighbors++;
+
+    if (i - 1 >= 0 && j + 1 < columns) {
+      if (arrayToPlayWith[i - 1][j + 1] === true) aliveNeighbors++;
+
+      if (j - 1 >= 0) {
+        if (arrayToPlayWith[i][j - 1] === true) aliveNeighbors++;
+      }
+      if (j + 1 < columns) {
+        if (arrayToPlayWith[i][j + 1] === true) aliveNeighbors++;
+      }
+      if (i + 1 < rows) {
+        if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
+      }
+      if (i + 1 < rows && j - 1 >= 0) {
+        if (arrayToPlayWith[i + 1][j - 1] === true) aliveNeighbors++;
+      }
+      if (i + 1 < rows && j + 1 < columns) {
+        if (arrayToPlayWith[i + 1][j + 1] === true) aliveNeighbors++;
+      }
+    }
+  }
+
+  return aliveNeighbors;
+};
 const coverArray = () => {
   for (let i = 0; i < arrayToPlayWith.length; i++) {
     for (let j = 0; j < arrayToPlayWith[i].length; j++) {
-      deadOrAlive(i, j);
+      const aliveNeighbors = deadOrAlive(i, j);
+      if (arrayToPlayWith[i][j] === true) {
+        if (aliveNeighbors === 2 || aliveNeighbors === 3) {
+          arrayToPlayWith[i][j] = true;
+        } else {
+          arrayToPlayWith[i][j] = false;
+        }
+      }
+      if (arrayToPlayWith[i][j] === false) {
+        if (aliveNeighbors === 3) {
+          arrayToPlayWith[i][j] = true;
+        }
+      }
     }
   }
 };
