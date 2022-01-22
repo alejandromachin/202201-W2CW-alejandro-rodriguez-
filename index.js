@@ -36,3 +36,5 @@ const newArray = () => {
   }
   return cellArray;
 };
+const arrayToPlayWith = newArray();
+console.log(arrayToPlayWith);

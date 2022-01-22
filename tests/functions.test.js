@@ -1,5 +1,5 @@
-const rows = 20;
-const columns = 20;
+const rows = 5;
+const columns = 5;
 const newArray = () => {
   const cellArray = [];
 
