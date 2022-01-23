@@ -1,19 +1,21 @@
+// numbers of rows and columns to play with. They has to be the same.
 const rows = 20;
 const columns = 20;
 
+// generates a random bidimentional array
 const newArray = () => {
-  const cellArray = [];
+  const bidimentionalArray = [];
 
   for (let i = 0; i < rows; i++) {
-    cellArray.push([]);
+    bidimentionalArray.push([]);
   }
 
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < columns; j++) {
-      cellArray[j].push(false);
+      bidimentionalArray[j].push(false);
     }
   }
-  return cellArray;
+  return bidimentionalArray;
 };
 
 const arrayToPlayWith = newArray();
