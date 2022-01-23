@@ -185,6 +185,7 @@ const deadOrAlive = (i, j) => {
 
   return aliveNeighbors;
 };
+
 const coverArray = () => {
   for (let i = 0; i < arrayToPlayWith.length; i++) {
     for (let j = 0; j < arrayToPlayWith[i].length; j++) {
@@ -205,6 +206,13 @@ const coverArray = () => {
         }
       }
     }
+  }
+};
+
+const loop = () => {
+  const population = 0;
+  while (population === 0) {
+    coverArray();
   }
 };
 
