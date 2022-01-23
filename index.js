@@ -118,7 +118,7 @@ const deadOrAliveNeighbors = (i, j) => {
     }
   }
 
-  // it does not evaluate the last collum
+  // it does not evaluate the last and first column
 
   if (j === columns && i > 0 && i < rows) {
     if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
@@ -127,10 +127,10 @@ const deadOrAliveNeighbors = (i, j) => {
     if (arrayToPlayWith[i + 1][j - 1] === true) aliveNeighbors++;
     if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
   }
-
   if (i - 1 >= 0) {
     if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
   }
+
   if (i - 1 >= 0 && j - 1 >= 0) {
     if (arrayToPlayWith[i - 1][j - 1] === true) aliveNeighbors++;
 
@@ -193,6 +193,7 @@ const loop = () => {
   coverArray();
 };
 
+// add onclick function to START button
 const start = document.getElementById("start");
 
 start.addEventListener("click", () => {
@@ -200,6 +201,7 @@ start.addEventListener("click", () => {
   document.querySelector(".play").style.display = "none";
   loop();
 });
+// add onclick function to REPLAY button
 
 const replay = document.getElementById("replay");
 replay.addEventListener("click", () => {
