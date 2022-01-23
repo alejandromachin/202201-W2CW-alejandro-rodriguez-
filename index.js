@@ -212,13 +212,11 @@ const loop = () => {
   coverArray();
 };
 
-const empezar = document.getElementById("empezar");
+const random = document.getElementById("random");
 
-empezar.addEventListener("click", () => {
+random.addEventListener("click", () => {
   loop();
 });
-
-console.log(arrayToPlayWith);
 
 // Any live cell with two or three live neighbours survives.
 // Any dead cell with three live neighbours becomes a live cell.
