@@ -196,12 +196,15 @@ const coverArray = () => {
           arrayToPlayWith[i][j] = true;
         } else {
           arrayToPlayWith[i][j] = false;
+          cell.classList.remove("alive");
           cell.classList.add("dead");
         }
       }
       if (arrayToPlayWith[i][j] === false) {
         if (aliveNeighbors === 3) {
           arrayToPlayWith[i][j] = true;
+          cell.classList.remove("dead");
+
           cell.classList.add("alive");
         }
       }
@@ -210,10 +213,14 @@ const coverArray = () => {
 };
 
 const loop = () => {
-  const population = 0;
-  while (population === 0) {
-    coverArray();
-  }
+  // const population = 0;
+
+  // setTimeout(() => {
+  //   while (population === 0) {
+
+  //   }
+  // }, 1000);
+  coverArray();
 };
 
 const empezar = document.getElementById("empezar");
@@ -222,7 +229,6 @@ empezar.addEventListener("click", () => {
   loop();
 });
 
-coverArray();
 console.log(arrayToPlayWith);
 
 // Any live cell with two or three live neighbours survives.
