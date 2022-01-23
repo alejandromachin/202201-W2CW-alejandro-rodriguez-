@@ -216,6 +216,12 @@ const loop = () => {
   }
 };
 
+const empezar = document.getElementById("empezar");
+
+empezar.addEventListener("click", () => {
+  loop();
+});
+
 coverArray();
 console.log(arrayToPlayWith);
 
