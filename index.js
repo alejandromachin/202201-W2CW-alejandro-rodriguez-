@@ -92,6 +92,8 @@ const randomAliveCells = () => {
       arrayToPlayWith[i][j] = Math.random() < 0.5;
       const cell = document.getElementById(`${i}_${j}`);
       if (arrayToPlayWith[i][j] === true) {
+        cell.classList.remove("dead");
+
         cell.classList.add("alive");
       }
       if (arrayToPlayWith[i][j] === false) {
@@ -113,6 +115,7 @@ const deadOrAlive = (i, j) => {
     if (j === 0) {
       if (arrayToPlayWith[i][j + 1] === true) aliveNeighbors++;
       if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
+      if (arrayToPlayWith[i + 1][j + 1] === true) aliveNeighbors++;
     }
     if (j > 0 && j < columns) {
       if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
