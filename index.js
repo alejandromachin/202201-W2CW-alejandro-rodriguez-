@@ -218,6 +218,8 @@ const loop = () => {
 const start = document.getElementById("start");
 
 start.addEventListener("click", () => {
+  document.querySelector(".replay").style.display = "flex";
+  document.querySelector(".play").style.display = "none";
   loop();
 });
 
