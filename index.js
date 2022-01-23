@@ -1,12 +1,6 @@
 const rows = 20;
 const columns = 20;
 
-// const hola = document.getElementById("hola");
-
-// hola.addEventListener("click", () => {
-//   document.getElementById("hola").style.background = "#ff006e";
-// });
-
 // const myFunction = () => {
 // };
 
@@ -62,6 +56,19 @@ function onClick() {
     this.setAttribute("class", "alive");
   }
 }
+// function randomLiveOrDead() {
+//   const location = this.id.split("_");
+
+//   const rowLocation = Number(location[0]);
+//   const columnLocation = Number(location[1]);
+
+//   if (arrayToPlayWith[rowLocation][columnLocation] === true) {
+//     this.setAttribute("class", "alive");
+//     arrayToPlayWith[rowLocation][columnLocation] = false;
+//   } else if (arrayToPlayWith[rowLocation][columnLocation] === false) {
+//     this.setAttribute("class", "dead");
+//   }
+// }
 
 const gameboard = () => {
   const board = document.querySelector(".board");
@@ -72,7 +79,7 @@ const gameboard = () => {
 
     for (let j = 0; j < columns; j++) {
       const cells = document.createElement("td");
-      cells.classList.add("dead");
+
       cells.setAttribute("id", `${i}_${j}`);
       cells.addEventListener("click", onClick);
       row.appendChild(cells);
@@ -92,11 +99,21 @@ const randomAliveCells = () => {
   for (let i = 0; i < arrayToPlayWith.length; i++) {
     for (let j = 0; j < arrayToPlayWith[i].length; j++) {
       arrayToPlayWith[i][j] = Math.random() < 0.5;
+      const cell = document.getElementById(`${i}_${j}`);
+      if (arrayToPlayWith[i][j] === true) {
+        cell.classList.add("alive");
+      }
+      if (arrayToPlayWith[i][j] === false) {
+        cell.classList.add("dead");
+      }
     }
   }
 };
+const start = document.getElementById("start");
 
-randomAliveCells();
+start.addEventListener("click", () => {
+  randomAliveCells();
+});
 
 const deadOrAlive = (i, j) => {
   let aliveNeighbors = 0;
@@ -175,11 +192,6 @@ const coverArray = () => {
       if (arrayToPlayWith[i][j] === true) {
         if (aliveNeighbors === 2 || aliveNeighbors === 3) {
           arrayToPlayWith[i][j] = true;
-
-          // const cell = document.getElementById(`${i}_${j}`);
-          // cell.classList.add("cell");
-
-          // document.getElementById(`${i}_${j}`).classList.add("alive");
         } else {
           arrayToPlayWith[i][j] = false;
         }
