@@ -189,16 +189,19 @@ const coverArray = () => {
   for (let i = 0; i < arrayToPlayWith.length; i++) {
     for (let j = 0; j < arrayToPlayWith[i].length; j++) {
       const aliveNeighbors = deadOrAlive(i, j);
+      const cell = document.getElementById(`${i}_${j}`);
       if (arrayToPlayWith[i][j] === true) {
         if (aliveNeighbors === 2 || aliveNeighbors === 3) {
           arrayToPlayWith[i][j] = true;
         } else {
           arrayToPlayWith[i][j] = false;
+          cell.classList.add("dead");
         }
       }
       if (arrayToPlayWith[i][j] === false) {
         if (aliveNeighbors === 3) {
           arrayToPlayWith[i][j] = true;
+          cell.classList.add("alive");
         }
       }
     }
