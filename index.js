@@ -102,9 +102,9 @@ const randomAliveCells = () => {
     }
   }
 };
-const start = document.getElementById("start");
+const random = document.getElementById("random");
 
-start.addEventListener("click", () => {
+random.addEventListener("click", () => {
   randomAliveCells();
 });
 
@@ -215,9 +215,9 @@ const loop = () => {
   coverArray();
 };
 
-const random = document.getElementById("random");
+const start = document.getElementById("start");
 
-random.addEventListener("click", () => {
+start.addEventListener("click", () => {
   loop();
 });
 
