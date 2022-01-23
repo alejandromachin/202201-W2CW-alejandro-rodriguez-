@@ -32,6 +32,8 @@ html {
   height: 100px;
 }
 .header_image {
+  border: 3px solid black;
+
   width: 324px;
   height: 50px;
 }
@@ -71,20 +73,20 @@ html {
 }
 
 .control-panel__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 15px;
+  font-size: 25px;
   font-weight: 900;
   color: #0f0f6e;
   background-color: #27e900;
-  width: 100px;
-  height: 30px;
+  width: 130px;
+  height: 35px;
   border: 3px solid #03022e;
   transition: 1s;
 }
 
-.control-panel__button-random {
-  font-size: 13px;
-}
 .control-panel__button:hover {
   background-color: #0a3302;
   color: #fff;
