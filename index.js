@@ -109,9 +109,9 @@ const randomAliveCells = () => {
     }
   }
 };
-const hola = document.getElementById("hola");
+const start = document.getElementById("start");
 
-hola.addEventListener("click", () => {
+start.addEventListener("click", () => {
   randomAliveCells();
 });
 
