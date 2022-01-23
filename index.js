@@ -1,26 +1,36 @@
 const rows = 20;
 const columns = 20;
 
-const gameboard = () => {
-  const board = document.querySelector(".board");
-  const table = document.createElement("table");
+// const hola = document.getElementById("hola");
 
-  for (let i = 0; i < rows; i++) {
-    const row = document.createElement("tr");
+// hola.addEventListener("click", () => {
+//   document.getElementById("hola").style.background = "#ff006e";
+// });
 
-    for (let j = 0; j < columns; j++) {
-      const cells = document.createElement("td");
-      cells.setAttribute("alive", false);
-      row.appendChild(cells);
-    }
-    table.appendChild(row);
-  }
-  board.appendChild(table);
-};
+// const myFunction = () => {
+// };
 
-window.onload = () => {
-  gameboard();
-};
+// for (let i = 0; i < elements.length; i++) {
+//   elements[i].addEventListener("click", myFunction, false);
+// }
+
+// const myFunction = function () {
+//   document.getElementById(".toggle").style.background = "#ff006e";
+// };
+
+// Array.from(elements).forEach(function (element) {
+//   element.addEventListener("click", myFunction);
+// });
+// const arrayCells = document.querySelectorAll(".cell");
+
+// for (const cell of arrayCells) {
+//   cell.addEventListener("click", () => {
+//     document.getElementById(cell.id).style.background = "#ff006e";
+//   });
+// }
+// arrayCells.addEventListener("click", () => {
+//   document.getElementById(1_0).style.background = "#ff006e";
+// });
 
 const newArray = () => {
   const cellArray = [];
@@ -37,6 +47,44 @@ const newArray = () => {
   return cellArray;
 };
 const arrayToPlayWith = newArray();
+
+function onClick() {
+  const location = this.id.split("_");
+
+  const rowLocation = Number(location[0]);
+  const columnLocation = Number(location[1]);
+
+  if (this.className === "alive") {
+    this.setAttribute("class", "dead");
+    arrayToPlayWith[rowLocation][columnLocation] = false;
+  } else if (this.className === "dead") {
+    arrayToPlayWith[rowLocation][columnLocation] = true;
+    this.setAttribute("class", "alive");
+  }
+}
+
+const gameboard = () => {
+  const board = document.querySelector(".board");
+  const table = document.createElement("table");
+
+  for (let i = 0; i < rows; i++) {
+    const row = document.createElement("tr");
+
+    for (let j = 0; j < columns; j++) {
+      const cells = document.createElement("td");
+      cells.classList.add("dead");
+      cells.setAttribute("id", `${i}_${j}`);
+      cells.addEventListener("click", onClick);
+      row.appendChild(cells);
+    }
+    table.appendChild(row);
+  }
+  board.appendChild(table);
+};
+
+window.onload = () => {
+  gameboard();
+};
 
 // CHANGES RANDOMLY THE STATUS OF EACH CELL TO LIVE OR DEAD
 
@@ -127,6 +175,11 @@ const coverArray = () => {
       if (arrayToPlayWith[i][j] === true) {
         if (aliveNeighbors === 2 || aliveNeighbors === 3) {
           arrayToPlayWith[i][j] = true;
+
+          // const cell = document.getElementById(`${i}_${j}`);
+          // cell.classList.add("cell");
+
+          // document.getElementById(`${i}_${j}`).classList.add("alive");
         } else {
           arrayToPlayWith[i][j] = false;
         }
