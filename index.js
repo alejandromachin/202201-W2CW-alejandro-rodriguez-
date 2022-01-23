@@ -1,31 +1,6 @@
 const rows = 20;
 const columns = 20;
 
-// const myFunction = () => {
-// };
-
-// for (let i = 0; i < elements.length; i++) {
-//   elements[i].addEventListener("click", myFunction, false);
-// }
-
-// const myFunction = function () {
-//   document.getElementById(".toggle").style.background = "#ff006e";
-// };
-
-// Array.from(elements).forEach(function (element) {
-//   element.addEventListener("click", myFunction);
-// });
-// const arrayCells = document.querySelectorAll(".cell");
-
-// for (const cell of arrayCells) {
-//   cell.addEventListener("click", () => {
-//     document.getElementById(cell.id).style.background = "#ff006e";
-//   });
-// }
-// arrayCells.addEventListener("click", () => {
-//   document.getElementById(1_0).style.background = "#ff006e";
-// });
-
 const newArray = () => {
   const cellArray = [];
 
@@ -140,16 +115,6 @@ const deadOrAlive = (i, j) => {
     if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
   }
 
-  // it does not evaluate de first column
-
-  // if (j === 0 && i > 0 && i < rows) {
-  //   if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
-  //   if (arrayToPlayWith[i - 1][j + 1] === true) aliveNeighbors++;
-  //   if (arrayToPlayWith[i][j + 1] === true) aliveNeighbors++;
-  //   if (arrayToPlayWith[i + 1][j + 1] === true) aliveNeighbors++;
-  //   if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
-  // }
-
   if (i - 1 >= 0) {
     if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
   }
@@ -227,7 +192,3 @@ const replay = document.getElementById("replay");
 replay.addEventListener("click", () => {
   window.location.reload();
 });
-
-// Any live cell with two or three live neighbours survives.
-// Any dead cell with three live neighbours becomes a live cell.
-// All other live cells die in the next generation. Similarly, all other dead cells stay dead.
