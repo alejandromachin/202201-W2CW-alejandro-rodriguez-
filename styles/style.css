@@ -3,9 +3,6 @@ td {
   width: 10px;
   height: 10px;
 }
-td:active {
-  background-color: #27e900;
-}
 
 tr {
   border: 1px solid black;
@@ -68,4 +65,12 @@ html {
 .control-panel__button:hover {
   background-color: #0a3302;
   color: #fff;
+}
+
+td.alive {
+  background-color: #27e900;
+}
+
+td.dead {
+  background-color: #03022e;
 }
