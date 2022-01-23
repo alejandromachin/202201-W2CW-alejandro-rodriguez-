@@ -225,8 +225,7 @@ start.addEventListener("click", () => {
 
 const replay = document.getElementById("replay");
 replay.addEventListener("click", () => {
-  document.querySelector(".replay").style.display = "none";
-  document.querySelector(".play").style.display = "flex";
+  window.location.reload();
 });
 
 // Any live cell with two or three live neighbours survives.
