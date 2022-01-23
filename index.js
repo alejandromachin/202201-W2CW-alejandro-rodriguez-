@@ -20,9 +20,11 @@ const newArray = () => {
 
 const arrayToPlayWith = newArray();
 
-function onClick() {
-  const location = this.id.split("_");
+// function to activate the cells on click,
+// it's called from the addEventListener given in gameboard funtion
 
+const onClick = () => {
+  const location = this.id.split("_");
   const rowLocation = Number(location[0]);
   const columnLocation = Number(location[1]);
 
@@ -33,7 +35,7 @@ function onClick() {
     arrayToPlayWith[rowLocation][columnLocation] = true;
     this.setAttribute("class", "alive");
   }
-}
+};
 
 const gameboard = () => {
   const board = document.querySelector(".board");
