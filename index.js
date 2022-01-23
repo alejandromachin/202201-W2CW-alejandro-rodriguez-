@@ -187,39 +187,35 @@ const deadOrAlive = (i, j) => {
 };
 
 const coverArray = () => {
-  for (let i = 0; i < arrayToPlayWith.length; i++) {
-    for (let j = 0; j < arrayToPlayWith[i].length; j++) {
-      const aliveNeighbors = deadOrAlive(i, j);
-      const cell = document.getElementById(`${i}_${j}`);
-      if (arrayToPlayWith[i][j] === true) {
-        if (aliveNeighbors === 2 || aliveNeighbors === 3) {
-          arrayToPlayWith[i][j] = true;
-        } else {
-          arrayToPlayWith[i][j] = false;
-          cell.classList.remove("alive");
-          cell.classList.add("dead");
+  setTimeout(() => {
+    for (let i = 0; i < arrayToPlayWith.length; i++) {
+      for (let j = 0; j < arrayToPlayWith[i].length; j++) {
+        const aliveNeighbors = deadOrAlive(i, j);
+        const cell = document.getElementById(`${i}_${j}`);
+        if (arrayToPlayWith[i][j] === true) {
+          if (aliveNeighbors === 2 || aliveNeighbors === 3) {
+            arrayToPlayWith[i][j] = true;
+          } else {
+            arrayToPlayWith[i][j] = false;
+            cell.classList.remove("alive");
+            cell.classList.add("dead");
+          }
         }
-      }
-      if (arrayToPlayWith[i][j] === false) {
-        if (aliveNeighbors === 3) {
-          arrayToPlayWith[i][j] = true;
-          cell.classList.remove("dead");
+        if (arrayToPlayWith[i][j] === false) {
+          if (aliveNeighbors === 3) {
+            arrayToPlayWith[i][j] = true;
+            cell.classList.remove("dead");
 
-          cell.classList.add("alive");
+            cell.classList.add("alive");
+          }
         }
       }
     }
-  }
+    coverArray();
+  }, 500);
 };
 
 const loop = () => {
-  // const population = 0;
-
-  // setTimeout(() => {
-  //   while (population === 0) {
-
-  //   }
-  // }, 1000);
   coverArray();
 };
 
