@@ -31,6 +31,10 @@ html {
   align-items: center;
   height: 100px;
 }
+.header_image {
+  width: 324px;
+  height: 50px;
+}
 .main-panel {
   display: flex;
   justify-content: center;
