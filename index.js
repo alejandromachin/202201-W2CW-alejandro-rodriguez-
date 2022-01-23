@@ -37,6 +37,8 @@ const onClick = () => {
   }
 };
 
+// function to generate the table to play
+
 const gameboard = () => {
   const board = document.querySelector(".board");
   const table = document.createElement("table");
@@ -81,13 +83,20 @@ const randomAliveCells = () => {
     }
   }
 };
+
+// set the button RANDOM to call the function randomAliveCells
+
 const random = document.getElementById("random");
 
 random.addEventListener("click", () => {
   randomAliveCells();
 });
 
-const deadOrAlive = (i, j) => {
+// function that counts how many alive cells are around one
+// the parameters will be the row and column position of the
+// cell that are evaluating
+
+const deadOrAliveNeighbors = (i, j) => {
   let aliveNeighbors = 0;
 
   if (i === 0) {
@@ -153,7 +162,7 @@ const coverArray = () => {
   setTimeout(() => {
     for (let i = 0; i < arrayToPlayWith.length; i++) {
       for (let j = 0; j < arrayToPlayWith[i].length; j++) {
-        const aliveNeighbors = deadOrAlive(i, j);
+        const aliveNeighbors = deadOrAliveNeighbors(i, j);
 
         const cell = document.getElementById(`${i}_${j}`);
 
