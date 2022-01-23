@@ -1,26 +1,30 @@
+// numbers of rows and columns to play with. They has to be the same.
 const rows = 20;
 const columns = 20;
 
+// generates a random bidimentional array
 const newArray = () => {
-  const cellArray = [];
+  const bidimentionalArray = [];
 
   for (let i = 0; i < rows; i++) {
-    cellArray.push([]);
+    bidimentionalArray.push([]);
   }
 
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < columns; j++) {
-      cellArray[j].push(false);
+      bidimentionalArray[j].push(false);
     }
   }
-  return cellArray;
+  return bidimentionalArray;
 };
 
 const arrayToPlayWith = newArray();
 
-function onClick() {
-  const location = this.id.split("_");
+// function to activate the cells on click,
+// it's called from the addEventListener given in gameboard funtion
 
+const onClick = () => {
+  const location = this.id.split("_");
   const rowLocation = Number(location[0]);
   const columnLocation = Number(location[1]);
 
@@ -31,7 +35,9 @@ function onClick() {
     arrayToPlayWith[rowLocation][columnLocation] = true;
     this.setAttribute("class", "alive");
   }
-}
+};
+
+// function to generate the table to play
 
 const gameboard = () => {
   const board = document.querySelector(".board");
@@ -77,13 +83,20 @@ const randomAliveCells = () => {
     }
   }
 };
+
+// set the button RANDOM to call the function randomAliveCells
+
 const random = document.getElementById("random");
 
 random.addEventListener("click", () => {
   randomAliveCells();
 });
 
-const deadOrAlive = (i, j) => {
+// function that counts how many alive cells are around one
+// the parameters will be the row and column position of the
+// cell that are evaluating
+
+const deadOrAliveNeighbors = (i, j) => {
   let aliveNeighbors = 0;
 
   if (i === 0) {
@@ -105,7 +118,7 @@ const deadOrAlive = (i, j) => {
     }
   }
 
-  // it does not evaluate the last collum
+  // it does not evaluate the last and first column
 
   if (j === columns && i > 0 && i < rows) {
     if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
@@ -114,10 +127,10 @@ const deadOrAlive = (i, j) => {
     if (arrayToPlayWith[i + 1][j - 1] === true) aliveNeighbors++;
     if (arrayToPlayWith[i + 1][j] === true) aliveNeighbors++;
   }
-
   if (i - 1 >= 0) {
     if (arrayToPlayWith[i - 1][j] === true) aliveNeighbors++;
   }
+
   if (i - 1 >= 0 && j - 1 >= 0) {
     if (arrayToPlayWith[i - 1][j - 1] === true) aliveNeighbors++;
 
@@ -149,7 +162,7 @@ const coverArray = () => {
   setTimeout(() => {
     for (let i = 0; i < arrayToPlayWith.length; i++) {
       for (let j = 0; j < arrayToPlayWith[i].length; j++) {
-        const aliveNeighbors = deadOrAlive(i, j);
+        const aliveNeighbors = deadOrAliveNeighbors(i, j);
 
         const cell = document.getElementById(`${i}_${j}`);
 
@@ -180,6 +193,7 @@ const loop = () => {
   coverArray();
 };
 
+// add onclick function to START button
 const start = document.getElementById("start");
 
 start.addEventListener("click", () => {
@@ -187,6 +201,7 @@ start.addEventListener("click", () => {
   document.querySelector(".play").style.display = "none";
   loop();
 });
+// add onclick function to REPLAY button
 
 const replay = document.getElementById("replay");
 replay.addEventListener("click", () => {
